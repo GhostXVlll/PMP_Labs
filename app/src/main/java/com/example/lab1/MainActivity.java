@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
 
-        //Screen checking
+        //Screen checking 
        /*DisplayMetrics display = getResources().getDisplayMetrics();
         boolean stop = true;
         if((display.heightPixels >= 1920 & display.widthPixels >= 1080) |
