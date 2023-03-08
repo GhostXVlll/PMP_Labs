@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             System.exit(1);
         }*/
     }
-
     public void clickNumber(View view) {
 
         if(isNew)
@@ -67,8 +66,19 @@ public class MainActivity extends AppCompatActivity {
             case R.id.Button8: number =  number+"8" ; break;
             case R.id.Button9: number =  number+"9" ; break;
             case R.id.ButtonZero: number =  number+"0" ; break;
-            case R.id.ButtonDot: number =  number+"." ; break;
-            case R.id.ButtonPlusMinus: number =  "-"+number ; break;
+
+            case R.id.ButtonDot:
+                if(dotIsPresent(number)){
+                    break;
+                }
+                number =  number+"."; break;
+
+            case R.id.ButtonPlusMinus:
+                if(minusIsPresent(number)) {
+                    break;
+                }
+                number =  "-"+number;
+                break;
         }
         editText.setText(number);
     }
@@ -102,5 +112,18 @@ public class MainActivity extends AppCompatActivity {
     public void clickAC(View view) {
         editText.setText("0");
         isNew = true;
+    }
+    public boolean dotIsPresent(String number){
+
+        if(number.indexOf(".") == -1){
+            return false;
+        }
+        return true;
+    }
+    public boolean minusIsPresent(String number){
+        if(number.indexOf("-")==-1){
+            return false;
+        }
+        return true;
     }
 }
